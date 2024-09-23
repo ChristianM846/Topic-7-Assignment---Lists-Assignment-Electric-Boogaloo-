@@ -33,6 +33,20 @@
                 {
                     Console.Write($"{number}, ");
                 }
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine();
+                Console.WriteLine("1 - Sort the list");
+                Console.WriteLine("2 - Make a new list (will have the same number of items)");
+                Console.WriteLine("3 - Remove a number (by value)");
+                Console.WriteLine("4 - Add a value to the list");
+                Console.WriteLine("5 - Sort the list");
+                Console.WriteLine("6 - Sort the list");
+                Console.WriteLine("7 - Sort the list");
+                Console.WriteLine("8 - Sort the list");
+                Console.WriteLine("9 - Sort the list");
+                Console.WriteLine("10 - Sort the list");
 
 
 
