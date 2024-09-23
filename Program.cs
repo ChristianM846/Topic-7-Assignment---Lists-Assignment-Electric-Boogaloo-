@@ -9,7 +9,8 @@
 
             int chooseVal;
             int menuChoice;
-            int addUp;
+            int addUp, average;
+            int smallest, largest;
             bool done = false;
 
 
@@ -41,12 +42,12 @@
                 Console.WriteLine("2 - Make a new list (will have the same number of items)");
                 Console.WriteLine("3 - Remove a number (by value)");
                 Console.WriteLine("4 - Add a value to the list");
-                Console.WriteLine("5 - Sort the list");
-                Console.WriteLine("6 - Sort the list");
-                Console.WriteLine("7 - Sort the list");
-                Console.WriteLine("8 - Sort the list");
-                Console.WriteLine("9 - Sort the list");
-                Console.WriteLine("10 - Sort the list");
+                Console.WriteLine("5 - Count the number of occurrences of a specified value");
+                Console.WriteLine("6 - Print the largest number");
+                Console.WriteLine("7 - Print the smallest number");
+                Console.WriteLine("8 - Print the sum and average of all the numbers");
+                Console.WriteLine("9 - Quit (And move on to part 2)");
+
 
 
 
