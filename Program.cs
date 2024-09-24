@@ -11,6 +11,7 @@
             int menuChoice;
             int addUp, average;
             int smallest, largest;
+            int listLength;
             bool done = false;
 
 
@@ -39,7 +40,7 @@
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine();
                 Console.WriteLine("1 - Sort the list");
-                Console.WriteLine("2 - Make a new list (will have the same number of items)");
+                Console.WriteLine("2 - Make a new list (will have the same number of values)");
                 Console.WriteLine("3 - Remove a number (by value)");
                 Console.WriteLine("4 - Add a value to the list");
                 Console.WriteLine("5 - Count the number of occurrences of a specified value");
@@ -48,11 +49,69 @@
                 Console.WriteLine("8 - Print the sum and average of all the numbers");
                 Console.WriteLine("9 - Quit (And move on to part 2)");
 
+                while (!Int32.TryParse(Console.ReadLine().Trim(), out menuChoice) || menuChoice <= 0 || menuChoice > 9)
+                {
+                    Console.WriteLine("That is not a valid choice. Please input the number corresponding to your choice from the menu above");
+                }
+
+                if (menuChoice == 1)
+                {
+                    numbers.Sort();
+                    Console.WriteLine();
+                    Console.WriteLine("The list has been sorted");
+                    Console.WriteLine();
+                }
+                else if (menuChoice == 2)
+                {
+                    listLength = numbers.Count - 1;
+                    numbers.Clear();
+
+                    for (int i = 0; i <= listLength; i++)
+                    {
+                        numbers.Add(generator.Next(10, 21));
+                    }
+
+                    Console.WriteLine();
+                    Console.WriteLine($"The list has been remade with {numbers.Count} values");
+                    Console.WriteLine();
+                }
+                else if (menuChoice == 3)
+                {
+
+                }
+                else if (menuChoice == 4)
+                {
+
+                }
+                else if (menuChoice == 5)
+                {
+
+                }
+                else if (menuChoice == 6)
+                {
+
+                }
+                else if (menuChoice == 7)
+                {
+
+                }
+                else if (menuChoice == 8)
+                {
+
+                }
+                else if (menuChoice == 9)
+                {
+
+                }
 
 
 
 
+
+
+                Console.WriteLine("Press ENTER to continue");
                 Console.ReadLine();
+                Console.Clear();
             }
 
 
