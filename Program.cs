@@ -41,7 +41,7 @@
                 Console.WriteLine();
                 Console.WriteLine("1 - Sort the list");
                 Console.WriteLine("2 - Make a new list (will have the same number of values)");
-                Console.WriteLine("3 - Remove a number (by value)");
+                Console.WriteLine("3 - Remove a number (by value - all instances)");
                 Console.WriteLine("4 - Add a value to the list");
                 Console.WriteLine("5 - Count the number of occurrences of a specified value");
                 Console.WriteLine("6 - Print the largest number");
@@ -51,14 +51,14 @@
 
                 while (!Int32.TryParse(Console.ReadLine().Trim(), out menuChoice) || menuChoice <= 0 || menuChoice > 9)
                 {
-                    Console.WriteLine("That is not a valid choice. Please input the number corresponding to your choice from the menu above");
+                    Console.WriteLine("That is not a valid choice. Please input the number corresponding to your choice from the menu above.");
                 }
 
                 if (menuChoice == 1)
                 {
                     numbers.Sort();
                     Console.WriteLine();
-                    Console.WriteLine("The list has been sorted");
+                    Console.WriteLine("The list has been sorted.");
                     Console.WriteLine();
                 }
                 else if (menuChoice == 2)
@@ -72,11 +72,33 @@
                     }
 
                     Console.WriteLine();
-                    Console.WriteLine($"The list has been remade with {numbers.Count} values");
+                    Console.WriteLine($"The list has been remade with {numbers.Count} values.");
                     Console.WriteLine();
                 }
                 else if (menuChoice == 3)
                 {
+                    Console.WriteLine();
+                    Console.WriteLine("Choose a value to remove from the list. (List contains numbers from 10-20)");
+
+                    while (!Int32.TryParse(Console.ReadLine().Trim(), out chooseVal))
+                    {
+                        Console.WriteLine("That is not a valid input, please input an integer you wish to remove from the list.");
+                    }
+
+                    if (chooseVal < 10 || chooseVal > 20)
+                    {
+                        Console.WriteLine("That value is outside the possible range of the list, and as such, there are no instances to remove.");
+                    }
+                    else
+                    {
+                        if (numbers.Contains(chooseVal))
+                        {
+                            numbers.RemoveAll(x => x == chooseVal);
+                        }
+                    }
+
+
+
 
                 }
                 else if (menuChoice == 4)
