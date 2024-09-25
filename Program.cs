@@ -338,15 +338,27 @@
                 }
                 else if (menuChoice == 5)
                 {
+                    veggies.Sort();
 
+                    Console.WriteLine();
+                    Console.WriteLine("The list has been sorted.");
+                    Console.WriteLine();
                 }
                 else if (menuChoice == 6)
                 {
+                    veggies.Clear();
 
+                    Console.WriteLine();
+                    Console.WriteLine("The list has been cleared.");
+                    Console.WriteLine();
                 }
                 else if (menuChoice == 7)
                 {
+                    done = true;
 
+                    Console.WriteLine();
+                    Console.WriteLine("Okay.");
+                    Console.WriteLine();
                 }
 
                 Console.WriteLine("Press ENTER to continue");
