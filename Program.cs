@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace Topic_7_Assignment___Lists_Assignment
+﻿namespace Topic_7_Assignment___Lists_Assignment
 {
     //Christian
     internal class Program
@@ -8,18 +6,19 @@ namespace Topic_7_Assignment___Lists_Assignment
         static void Main(string[] args)
         {
 
-
+            string vegName;
             int chooseVal;
             int menuChoice;
             int smallest, largest;
             int count;
             int listLength;
+            int foundIndex = 0;
             double addUp, average;
             bool done = false;
 
-
             Random generator = new Random();
             List<int> numbers = new List<int>();
+            List<string> veggies = new List<string>() { "CARROT", "BEET", "CELERY", "RADISH", "CABBAGE" };
 
             Console.WriteLine("Lists of Integers");
             Console.WriteLine();
@@ -33,11 +32,12 @@ namespace Topic_7_Assignment___Lists_Assignment
             {
                 Console.WriteLine("Here is the list of integers:");
                 Console.WriteLine();
-                
+
                 foreach (int number in numbers)
                 {
                     Console.Write($"{number}, ");
                 }
+
                 Console.WriteLine();
                 Console.WriteLine();
                 Console.WriteLine("Choose an option:");
@@ -140,7 +140,7 @@ namespace Topic_7_Assignment___Lists_Assignment
                         Console.WriteLine($"{chooseVal} is outside the possible range of the list, and thus there are {count} instances of it");
                         Console.WriteLine();
                     }
-                    else 
+                    else
                     {
                         foreach (int num in numbers)
                         {
@@ -149,6 +149,7 @@ namespace Topic_7_Assignment___Lists_Assignment
                                 count++;
                             }
                         }
+
                         Console.WriteLine($"There are {count} instances of {chooseVal} in the list");
                         Console.WriteLine();
                     }
@@ -209,6 +210,145 @@ namespace Topic_7_Assignment___Lists_Assignment
                     Console.WriteLine("Okay!");
                     Console.WriteLine();
                 }
+                Console.WriteLine("Press ENTER to continue");
+                Console.ReadLine();
+                Console.Clear();
+            }
+
+            done = false;
+
+            Console.WriteLine("Lists of Strings");
+            Console.WriteLine();
+
+            while (!done)
+            {
+                Console.WriteLine("Here is the list of vegetables:");
+                Console.WriteLine();
+
+                for (int i = 0; i <= veggies.Count - 1; i++)
+                {
+                    Console.WriteLine($"{i + 1} - {veggies[i]}");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine();
+                Console.WriteLine("1 - Remove a vegetable by index");
+                Console.WriteLine("2 - Remove a vegetable by name");
+                Console.WriteLine("3 - Search for a vegetable");
+                Console.WriteLine("4 - Add a vegetable");
+                Console.WriteLine("5 - Sort the list");
+                Console.WriteLine("6 - Clear the list");
+                Console.WriteLine("7 - Quit");
+
+                while (!Int32.TryParse(Console.ReadLine().Trim(), out menuChoice) || menuChoice <= 0 || menuChoice > 7)
+                {
+                    Console.WriteLine("That is not a valid choice. Please input the number corresponding to your choice from the menu above.");
+                }
+
+                if (menuChoice == 1)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Input the index of the begetable you would like to remove. (The index in the menu, not the actual index)");
+
+                    while (!Int32.TryParse(Console.ReadLine().Trim(), out chooseVal))
+                    {
+                        Console.WriteLine("That is not a valid input. Please input a valid integer.");
+                    }
+
+                    if (chooseVal <= 0 || chooseVal > veggies.Count)
+                    {
+                        Console.WriteLine("The list does not contain an item at that index, and thus I cannot remove it.");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Item number {chooseVal} - {veggies[chooseVal - 1]} has been removed");
+                        Console.WriteLine();
+
+                        veggies.RemoveAt(chooseVal - 1);
+                    }
+                }
+                else if (menuChoice == 2)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Type the name of the vegetable you wish to remove (does not need to be all capital letters)");
+
+                    vegName = Console.ReadLine().Trim().ToUpper();
+
+                    if (veggies.Contains(vegName))
+                    {
+                        veggies.Remove(vegName);
+
+                        Console.WriteLine($"{vegName} has been removed.");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{vegName} does not exist in the list, and thus I can not remove it.");
+                        Console.WriteLine();
+                    }
+                }
+                else if (menuChoice == 3)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Type the name of the vegetable you wish to search for (does not need to be all capital letters)");
+
+                    vegName = Console.ReadLine().Trim().ToUpper();
+
+                    if (veggies.Contains(vegName))
+                    {
+                        for (int i = 0; i <= veggies.Count - 1; i++)
+                        {
+                            if (veggies[i] == vegName)
+                            {
+                                foundIndex = i + 1;
+                            }
+                        }
+
+                        Console.WriteLine($"{vegName} has been found at index {foundIndex} (Menu index, not actual index) ");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{vegName} does not exist in the list.");
+                        Console.WriteLine();
+                    }
+                }
+                else if (menuChoice == 4)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Type the name of the vegetable you want to add to the list:");
+
+                    vegName = Console.ReadLine().Trim().ToUpper();
+
+                    if (veggies.Contains(vegName))
+                    {
+                        Console.WriteLine($"I'm sorry, {vegName} already exists in the list, and I can't have duplicates.");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        veggies.Add(vegName);
+
+                        Console.WriteLine($"{vegName} has been added to the end of the list.");
+                        Console.WriteLine();
+                    }
+                }
+                else if (menuChoice == 5)
+                {
+
+                }
+                else if (menuChoice == 6)
+                {
+
+                }
+                else if (menuChoice == 7)
+                {
+
+                }
+
                 Console.WriteLine("Press ENTER to continue");
                 Console.ReadLine();
                 Console.Clear();
